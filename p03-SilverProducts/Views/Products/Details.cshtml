@@ -1,0 +1,40 @@
+﻿@model p03_SilverProducts.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    .btn-transparent {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+</style>
+
+    <h2>Details</h2>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="~/Images/@Html.DisplayFor(model => model.Image)" style="border:1px solid grey" height="200" width="200">
+                        </div>
+                        <div class="col-md-8">
+                            <h3>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </h3>
+                            <span style="color:green;">
+                                @Html.DisplayFor(model => model.Description)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr />
+    <div class="text-center">
+        @Html.ActionLink("BACK", "Index", null, new { @class = "btn btn-info btn-sm btn-transparent" })
+    </div>
+
+

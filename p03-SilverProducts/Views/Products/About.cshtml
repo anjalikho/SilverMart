@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "About";
+}
+
+<h2>About</h2>
+
+<style>
+    .btn-transparent {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+</style>
+
+<body style="background-image: url('/Images/im4.jpg');">
+    <address>
+        ANJALI KHOKER<br />
+        C# and ASP.NET Developer<br />
+        London<br />
+        <abbr title="Phone">P:</abbr>
+        07475902974
+    </address>
+
+    <address>
+        <strong>Email:</strong>   <a href="anjali_k@outlook.com">anjali_k@outlook.com</a>   
+    </address>
+
+    <div>
+        @Html.ActionLink("BACK", "Index1", null, new { @class = "btn btn-info btn-sm btn-transparent" })
+    </div>
+</body>
+

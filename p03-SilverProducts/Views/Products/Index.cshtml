@@ -1,0 +1,85 @@
+﻿@model IEnumerable<p03_SilverProducts.Models.Product>
+
+@{
+    ViewBag.Title = "Silver-Mart";
+}
+
+<style>
+
+.btn-transparent {
+    background-color: rgba(119, 119, 119, 0.59);
+}
+
+.btn-transparent:hover,
+.btn-transparent:active,
+.btn-transparent:focus {
+    background-color: rgba(131, 131, 131, 0.59);
+}
+</style>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    <div class="col-md-6 text-left">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <br />
+                            <p class="Search">
+                                @Html.DropDownList("Items", "All")
+                                <input type="submit" value="Filter" class="btn btn-info btn-sm btn-transparent" />
+                            </p>
+                        }
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <br />
+                        @Html.ActionLink("Add New", "Create", null, new { @class = "btn btn-info btn-sm btn-transparent" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row same-height-row">
+        @{int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            String hrefId = "silverModal" + i;
+            String imageLink = item.Image;
+
+            if (imageLink != null && !imageLink.StartsWith("http"))
+            {
+                imageLink = "/Images/" + imageLink;
+            }
+            <div class="col-sm-4 portfolio-item same-height" style="border:1px solid gray;">
+                <div class="row">
+                    <div class="col-md-6 text-left">
+                        <h3>@Html.DisplayFor(modelItem => item.Items)</h3>
+                    </div>
+                </div>
+                                
+                <a href="#@hrefId" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="@imageLink" style="height:300px; width:400px;" class="img-responsive" alt="">
+                </a>
+                
+                <div class="row" style="padding:10px; position:absolute; bottom: 0px; width: 100%;">
+                    <div class="col-sm-12 text-center">
+                        @Html.ActionLink("DETAILS", "Details", null, new { @id = @item.Id }, new { @class = "btn btn-info btn-sm btn-transparent" })
+                        @Html.ActionLink("EDIT", "Edit", null, new { @id = @item.Id }, new { @class = "btn btn-info btn-sm btn-transparent" })
+                        @Html.ActionLink("DELETE", "Delete", null, new { @id = @item.Id }, new { @class = "btn btn-info btn-sm btn-transparent" })    
+                    </div>    
+                </div>
+            </div>
+        }
+    </div>
+    <br/>
+    <p class="text-center">
+        @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-info btn-sm btn-transparent" })
+    </p>

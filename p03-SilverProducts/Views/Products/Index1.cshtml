@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/full-slider.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        .container-full {
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+    }
+    </style>
+
+    <!-- Full Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active" style="background: linear-gradient(to bottom, #808080 0%, #ffffff 100%)"></li>
+            <li data-target="#myCarousel" data-slide-to="1" style="background: linear-gradient(to bottom, #808080 0%, #ffffff 100%)"></li>
+            <li data-target="#myCarousel" data-slide-to="2" style="background: linear-gradient(to bottom, #808080 0%, #ffffff 100%)"></li>
+            <li data-target="#myCarousel" data-slide-to="3" style="background: linear-gradient(to bottom, #808080 0%, #ffffff 100%)"></li>
+        </ol>
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('/Images/im3.jpg');"></div>
+                <div class="carousel-caption">
+                    <div class="row">
+                        <div class="center-block" style="background-color:rgba(235,235,235,.5)">
+                            @Html.ActionLink("New Collection", "Index", null, new { @class = "btn btn-default" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('/Images/im2.jpg');">
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('/Images/im4.jpg');"></div>
+            </div>
+            <div class="item">z
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('/Images/im1.jpg');"></div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </header>
+
+    <!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+        $( document ).ready(function() {
+            $('header').css({ height: '500px' });
+            $('.carousel .item').css({ height: '90%' });
+            $(".navbar").hide();
+            $("footer").hide();
+
+            $('.carousel').carousel({
+                interval: 5000 //changes the speed
+            });
+        });
+    </script>
