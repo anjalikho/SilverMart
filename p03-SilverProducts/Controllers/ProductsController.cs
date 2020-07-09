@@ -17,10 +17,10 @@ namespace p03_SilverProducts.Controllers
 
         // GET: Products
 
-        public ActionResult Index1()
-        {
-            return View();
-        }
+       // public ActionResult Index1()
+        //{
+          //  return View();
+        //}
 
         public ActionResult Index(string items)
         {
